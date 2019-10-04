@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './style/index.less';
 
 const App: React.FC = () => {
   return (
