@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './style/index.less';
+import {
+  AuthButton, LoggedIn, LoggedOut,
+  Value, Image, List, Link, Label,
+  Like,
+} from '@solid/react';
 
-const App: React.FC = () => {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <header>
+        <h1>Solid App</h1>
+        <p><AuthButton popup="popup.html" login="tang" logout="custom"/></p>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          <Like object="https://github.com/solid/react-components">
+            the Solid React components</Like>
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <main>
+        <LoggedIn>
+          <Image src="user.image" defaultSrc="profile.svg" className="profile"/>
+          <p>Welcome back, <Value src="user.name"/>.</p>
+          <h2>Friends</h2>
+          <List src="user.friends.firstName"/>
+        </LoggedIn>
+        <LoggedOut>
+          <p>You are logged out.</p>
+        </LoggedOut>
+      </main>
+      <footer>
+        <p>
+          Solid React demo app
+          by <Label src="https://duke4795.solid.community/profile#me"/> {' '}
+        </p>
+      </footer>
     </div>
   );
 }
-
-export default App;
